@@ -12,7 +12,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     ports:
-      - "3306:3306"
+      - "3307:3307"
     healthcheck:
       test: ["CMD", "mysql", "-h", "localhost", "-u", "root", "-p", "password", "-e", "SELECT 1"]
       timeout: 20s
@@ -20,8 +20,8 @@ services:
 
   web:
     build: .
-    command: tail -F anything
-    # command: ["python", "manage.py", "runserver", "0:8000"]
+    #command: tail -F anything
+    command: ["python", "manage.py", "runserver", "0:8000"]
     restart: always
     volumes:
       - ./:/code/
