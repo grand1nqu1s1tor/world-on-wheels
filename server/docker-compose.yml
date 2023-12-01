@@ -27,6 +27,7 @@ services:
     restart: always
     volumes:
       - ./:/code/
+      - web-server-site-packages:/usr/local/lib/python3.8/site-packages
     ports:
       - "8000:8000"
     depends_on:
@@ -34,10 +35,11 @@ services:
     links:
       - db
     healthcheck:
-      test: ["CMD", "curl", "--fail", "http://localhost:8000"]
-      interval: 30s
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/healthcheck/"]
+      interval: 60s
       timeout: 10s
       retries: 5
 
 volumes:
   db-data:
+  web-server-site-packages:
