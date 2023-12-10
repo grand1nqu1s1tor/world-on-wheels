@@ -403,3 +403,4 @@ class Command(BaseCommand):
         self.stdout.write(
             self.style.SUCCESS('DB setup successful')
         )
+

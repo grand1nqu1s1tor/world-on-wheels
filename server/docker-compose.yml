@@ -19,8 +19,6 @@ services:
       MYSQL_ROOT_PASSWORD: password
     restart: always
     volumes:
-      - ../ddl:/docker-entrypoint-initdb.d
-      - ../dml:/docker-entrypoint-initdb.d
       - db-data:/var/lib/mysql
     ports:
       - "3307:3306"
